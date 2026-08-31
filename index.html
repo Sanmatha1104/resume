@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>许怡馨 · 你好，我是许怡馨</title>
+<meta name="description" content="许怡馨 — 品牌传播 · 内容营销 · 达人种草" />
+
+<!-- 字体：标题衬线(Noto Serif SC / Cormorant / EB Garamond)，正文细黑体(Inter / Noto Sans SC) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&family=Noto+Sans+SC:wght@300;400;500&family=Noto+Serif+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ============ 视觉规范：低饱和杂志风 ============ */
+:root{
+  --bg:#F1EEE7;        /* 背景 米灰 */
+  --card:#E8E4DB;      /* 卡片 暖灰 */
+  --card-2:#EFEAE1;
+  --surface:#FBFAF7;   /* 近白卡片面 */
+  --ink:#2E2B26;       /* 文字 墨黑 */
+  --muted:#6E6860;     /* 次要 灰褐 */
+  --sage:#8FA08A;      /* 主色 鼠尾草绿 */
+  --pink:#C9A9A4;      /* 辅助 灰粉 */
+  --brown:#A08A78;     /* 辅助 暖棕 */
+  --olive:#6B7C64;     /* 强调 深橄榄 */
+  --line:rgba(46,43,38,.14);
+  --maxw:1200px;
+  --serif-en:"Cormorant Garamond","EB Garamond",serif;
+  --serif:"Noto Serif SC","Cormorant Garamond","EB Garamond",serif;
+  --sans:"Inter","Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:linear-gradient(110deg,#FCDCE3 0%,#F4E5D3 25%,#DDE9D0 50%,#CDDBE6 75%,#DCD4E5 100%);background-attachment:fixed;color:var(--ink);line-height:1.7;font-weight:400;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+section[id]{scroll-margin-top:76px}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+h1,h2,h3,h4,.serif{font-family:var(--serif);font-weight:500;letter-spacing:.01em}
+
+/* ---------- 导航 ---------- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(241,238,231,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{font-family:var(--serif);font-size:20px;font-weight:600}
+.brand-dot{color:var(--olive)}
+.nav-links{display:flex;gap:32px}
+.nav-links a{font-size:14px;color:var(--muted);letter-spacing:.06em;transition:color .3s}
+.nav-links a:hover{color:var(--ink)}
+.nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+.nav-toggle span{width:24px;height:2px;background:var(--ink);border-radius:2px}
+
+/* ---------- Hero（左文右图 · 杂志风） ---------- */
+.hero{padding:132px 0 72px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
+.hero-eyebrow{font-size:13px;letter-spacing:.32em;text-transform:uppercase;color:var(--olive);margin-bottom:20px}
+.hero-title{font-size:clamp(36px,5.6vw,68px);line-height:1.1;font-weight:400;white-space:nowrap}
+.hero-tagline{margin-top:18px;font-size:16px;color:var(--olive);letter-spacing:.12em}
+.hero-cta{margin-top:36px;display:flex;gap:16px;flex-wrap:wrap}
+.hero-image{position:relative;width:min(320px,86%);margin-left:auto}
+.hero-image::before{content:"";position:absolute;inset:-14px;border:1px solid var(--line);border-radius:50%;pointer-events:none}
+.hero-image img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:50%;box-shadow:0 16px 38px rgba(46,43,38,.14)}
+.hero-image-cap{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--surface);background:rgba(46,43,38,.45);padding:5px 12px;border-radius:999px;backdrop-filter:blur(4px)}
+
+/* ---------- 按钮 ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 30px;border-radius:999px;font-size:14px;letter-spacing:.08em;border:1px solid transparent;cursor:pointer;transition:background .3s,color .3s,border-color .3s}
+.btn-primary{background:var(--sage);color:#FBFAF7;border-color:var(--sage)}
+.btn-primary:hover{background:var(--olive);border-color:var(--olive)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:#FBFAF7}
+
+/* ---------- 数据战绩 ---------- */
+.stats{padding:24px 0 8px}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:24px;text-align:center}
+.stat-num{font-family:var(--serif-en);font-size:clamp(28px,4vw,44px);color:var(--olive);font-weight:500;line-height:1}
+.stat-unit{font-size:.5em;margin-left:2px}
+.stat-label{margin-top:10px;font-size:13px;color:var(--muted);letter-spacing:.05em}
+
+/* ---------- 区块通用 ---------- */
+.section{padding:96px 0}
+.section-alt{background:transparent}
+.sec-head{display:flex;gap:22px;align-items:flex-start;margin-bottom:52px}
+.sec-no{font-family:var(--serif-en);font-size:42px;color:var(--pink);line-height:1;font-weight:400}
+.sec-zh{font-size:clamp(28px,4vw,40px)}
+.sec-en{font-size:13px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.sec-desc{margin-top:12px;color:var(--muted);font-size:15px;max-width:560px}
+
+/* ---------- 卡片 ---------- */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:8px;overflow:hidden;transition:transform .35s ease,box-shadow .35s ease}
+.card:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(46,43,38,.09)}
+
+/* ---------- 个人优势（3列 + 中心人物 + 4 浮标） ---------- */
+.advantage{position:relative;padding:96px 0 80px;overflow:hidden}
+.advantage-head{text-align:center;margin-bottom:56px}
+.advantage-head .sec-zh{font-size:clamp(32px,4.6vw,44px)}
+.advantage-head .sec-en{color:var(--olive);margin-top:8px}
+.advantage-head .adv-tagline{margin-top:14px;color:var(--muted);font-size:14px;letter-spacing:.16em}
+.advantage-grid{position:relative;display:grid;grid-template-columns:1fr 520px 1fr;column-gap:36px;align-items:center;max-width:1200px;margin:0 auto;padding:0 24px}
+.adv-col{display:flex;flex-direction:column;gap:22px}
+.adv-col.left{align-items:flex-end}
+.adv-col.right{align-items:flex-start}
+.adv-card{width:100%;max-width:380px;background:var(--surface);border-radius:14px;padding:26px 28px;box-shadow:0 8px 24px rgba(46,43,38,.07);transition:transform .35s ease,box-shadow .35s ease}
+.adv-card:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(46,43,38,.12)}
+.adv-icon{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:16px;color:#fff}
+.adv-icon svg{width:20px;height:20px}
+.adv-icon.tone-pink{background:#E8A0A8}
+.adv-icon.tone-green{background:#9CB69A}
+.adv-icon.tone-purple{background:#A595C7}
+.adv-icon.tone-cyan{background:#7DB4BD}
+.adv-title{font-size:18px;font-weight:500;color:var(--ink);margin-bottom:2px;font-family:var(--serif)}
+.adv-title-en{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.adv-points{margin-top:4px}
+.adv-points li{position:relative;padding-left:14px;color:var(--muted);font-size:13.5px;line-height:1.7;margin-bottom:6px}
+.adv-points li::before{content:"";position:absolute;left:0;top:11px;width:5px;height:1px;background:var(--sage)}
+.adv-pill{display:inline-block;margin-top:18px;padding:5px 14px;border-radius:999px;font-size:12px;letter-spacing:.04em}
+.adv-pill.tone-pink{background:rgba(232,160,168,.18);color:#A35460}
+.adv-pill.tone-green{background:rgba(156,182,154,.22);color:#557256}
+.adv-pill.tone-purple{background:rgba(165,149,199,.22);color:#6B5B8C}
+.adv-pill.tone-cyan{background:rgba(125,180,189,.22);color:#3E6F76}
+.adv-center{position:relative;display:flex;align-items:flex-end;justify-content:center;min-height:640px}
+.adv-avatar{position:relative;z-index:2;width:100%;max-width:500px;display:block}
+.adv-base{position:absolute;left:50%;bottom:-6px;transform:translateX(-50%);width:520px;height:60px;background:radial-gradient(ellipse at center, rgba(181,216,220,.6) 0%, rgba(181,216,220,0) 70%);border-radius:50%;z-index:1}
+/* Three.js 粒子环画布：位于底座之上、人物之下（人物自然遮挡环的前半圈，营造环绕纵深） */
+.adv-particles{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:min(520px,100%);height:280px;z-index:1;pointer-events:none}
+.adv-floats{position:absolute;inset:0;z-index:3;pointer-events:none}
+.adv-float-icon{position:absolute;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);box-shadow:0 4px 14px rgba(46,43,38,.1);display:flex;align-items:center;justify-content:center;color:var(--olive);flex-shrink:0}
+.adv-float-icon svg{width:20px;height:20px}
+.adv-float-cap{display:flex;flex-direction:column;line-height:1.2}
+.adv-float-cap b{font-size:13px;font-weight:500;color:var(--ink)}
+.adv-float-cap span{font-size:10px;letter-spacing:.18em;color:var(--muted);text-transform:uppercase;margin-top:2px}
+.adv-float.lt{left:-8px;top:18%}
+.adv-float.rt{right:-8px;top:18%}
+.adv-float.lb{left:-8px;bottom:18%}
+.adv-float.rb{right:-8px;bottom:18%}
+@media (max-width:980px){
+  .advantage-grid{grid-template-columns:1fr;row-gap:32px;padding:0 20px}
+  .adv-center{min-height:auto;order:-1;padding:20px 0}
+  .adv-floats{display:none}
+  .adv-col.left,.adv-col.right{align-items:stretch}
+  .adv-card{max-width:100%}
+}
+
+/* ---------- 经历时间线（居中 + 左右交替） ---------- */
+.timeline{position:relative;max-width:1080px;margin:0 auto}
+.timeline::before{content:"";position:absolute;left:50%;top:6px;bottom:6px;width:1px;background:var(--line);transform:translateX(-50%)}
+.tl-item{position:relative;display:grid;grid-template-columns:1fr 100px 1fr;column-gap:32px;align-items:center;padding-bottom:64px}
+.tl-item:last-child{padding-bottom:0}
+.tl-side.left{grid-column:1;justify-self:end;width:100%;max-width:460px;display:flex;flex-direction:column}
+.tl-side.right{grid-column:3;justify-self:start;width:100%;max-width:460px;display:flex;flex-direction:column}
+.tl-marker{grid-column:2;position:relative;display:flex;flex-direction:column;align-items:center;padding:0 4px;z-index:2}
+.tl-stage{font-family:var(--serif);font-size:15px;letter-spacing:.06em;color:var(--ink);text-align:center;white-space:nowrap}
+.tl-period{font-size:11px;color:var(--muted);margin-top:6px;letter-spacing:.04em;white-space:nowrap;text-align:center}
+.tl-dot{width:14px;height:14px;border-radius:50%;background:var(--sage);border:3px solid var(--bg);box-shadow:0 0 0 1px var(--line),0 0 0 5px rgba(107,124,100,.08);margin-top:10px;position:relative;z-index:3}
+.tl-card{padding:24px 28px;width:100%}
+.tl-org{font-size:22px}
+.tl-role{color:var(--brown);font-size:14px;margin:2px 0 12px}
+.tl-points li{position:relative;padding-left:16px;color:var(--muted);font-size:14px;margin-bottom:6px}
+.tl-points li::before{content:"";position:absolute;left:0;top:12px;width:7px;height:1px;background:var(--sage)}
+.tl-img{width:100%;aspect-ratio:4/3;overflow:hidden;border-radius:12px;background:var(--card);position:relative;box-shadow:0 10px 28px rgba(46,43,38,.1)}
+.tl-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.tl-img:hover img{transform:scale(1.04)}
+.tl-caption{font-size:12px;color:var(--muted);margin-top:10px;letter-spacing:.04em;text-align:center}
+.tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.tag{font-size:12px;padding:4px 12px;border:1px solid var(--line);border-radius:999px;color:var(--muted);letter-spacing:.05em}
+
+/* ---------- 作品板块 ---------- */
+.board{margin-bottom:76px}
+.board:last-child{margin-bottom:0}
+.board-head{display:flex;gap:18px;align-items:flex-start;padding-bottom:22px;border-bottom:1px solid var(--line);margin-bottom:34px}
+.board-no{font-family:var(--serif-en);font-size:34px;color:var(--sage);line-height:1}
+.board-name{font-size:clamp(22px,3vw,30px)}
+.board-en{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+.board-desc{margin-top:10px;color:var(--muted);font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sub-head{display:flex;align-items:baseline;gap:14px;margin:38px 0 18px;flex-wrap:wrap}
+.sub-title{font-size:20px}
+.sub-note{font-size:13px;color:var(--muted)}
+
+/* 公众号推文 */
+.article-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:20px}
+.article-card{display:flex;flex-direction:column}
+.article-cover img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.article-body{padding:16px 18px;display:flex;flex-direction:column;flex:1}
+.article-body h4{font-size:16px}
+.article-body p{font-size:13px;color:var(--muted);margin-top:6px;flex:1}
+.link-more{display:inline-block;margin-top:12px;font-size:13px;color:var(--olive)}
+
+/* 平面设计 · 左右滑动 carousel（4 张同可见的等大缩略图） */
+.gallery{position:relative;padding:30px 64px 50px;overflow:hidden}
+.gallery-track{display:flex;align-items:center;gap:18px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:20px 24px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.gallery-track::-webkit-scrollbar{display:none}
+.gallery-item{flex:0 0 auto;width:240px;scroll-snap-align:center;border-radius:10px;overflow:hidden;background:none;border:1px solid var(--line);transition:transform .32s var(--ease-out),opacity .32s var(--ease-out),box-shadow .32s var(--ease-out);opacity:.6;transform:none;padding:0;cursor:pointer}
+.gallery-item.is-active{opacity:1;box-shadow:0 12px 36px rgba(46,43,38,.18);border-color:transparent}
+.gallery-item img{display:block;width:100%;height:auto}
+.gallery-arrow{position:absolute;top:50%;margin-top:-24px;width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:rgba(251,250,247,.92);color:var(--ink);font-size:26px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;padding:0;z-index:5;backdrop-filter:blur(6px);transition:background .25s ease,box-shadow .25s ease,transform .2s ease;box-shadow:0 4px 14px rgba(46,43,38,.08)}
+.gallery-arrow:hover{background:#fff;transform:scale(1.06);box-shadow:0 6px 20px rgba(46,43,38,.14)}
+.gallery-arrow.prev{left:10px}
+.gallery-arrow.next{right:10px}
+.gallery-count{position:absolute;right:18px;bottom:8px;font-size:12px;letter-spacing:.08em;color:var(--muted);background:rgba(251,250,247,.9);padding:5px 12px;border-radius:14px;border:1px solid var(--line)}
+.lightbox{position:fixed;inset:0;z-index:1000;background:rgba(24,22,19,.93);display:flex;align-items:center;justify-content:center;cursor:zoom-out;animation:lbFade .25s ease}
+.lightbox-img{max-width:90vw;max-height:86vh;width:auto;height:auto;object-fit:contain;cursor:default;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.lightbox-close{position:absolute;top:18px;right:22px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.06);color:#fff;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;padding:0}
+.lightbox-close:hover{background:rgba(255,255,255,.16)}
+.lightbox-arrow{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.06);color:#fff;font-size:26px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;padding:0}
+.lightbox-arrow:hover{background:rgba(255,255,255,.16)}
+.lightbox-arrow.prev{left:22px}
+.lightbox-arrow.next{right:22px}
+@keyframes lbFade{from{opacity:0}to{opacity:1}}
+
+/* 视频输出 */
+.video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.video-cover{position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--card)}
+.video-cover img{width:100%;height:100%;object-fit:cover;display:block}
+.video-cover-ph{position:absolute;left:0;right:0;top:58%;transform:translateY(-50%);text-align:center;color:var(--muted);font-size:13px;letter-spacing:.05em}
+.video-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:rgba(46,43,38,.55);color:#FBFAF7;display:flex;align-items:center;justify-content:center;font-size:18px}
+.video-body{padding:14px 18px}
+.video-body h4{font-size:16px}
+.video-body p{font-size:13px;color:var(--muted);margin-top:4px}
+
+/* 品牌活动策划 */
+.campaign-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px}
+.campaign-cover{aspect-ratio:3/2;overflow:hidden;background:var(--card)}
+.campaign-cover img{width:100%;height:100%;object-fit:cover;display:block}
+.campaign-body{padding:20px 22px}
+.campaign-body h4{font-size:19px}
+.campaign-role{font-size:13px;color:var(--brown);margin:4px 0 8px}
+.campaign-body>p{font-size:14px;color:var(--muted)}
+.metric-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.metric{font-size:12px;font-weight:500;color:var(--olive);background:rgba(107,124,100,.12);padding:4px 10px;border-radius:6px;letter-spacing:.03em}
+
+/* 达人种草 */
+.seed-masonry{columns:4;column-gap:16px}
+.seed-card{display:inline-block;width:100%;break-inside:avoid;margin-bottom:18px;overflow:hidden;background:var(--surface);border:1px solid var(--line);border-radius:8px;transition:transform .35s ease,box-shadow .35s ease}
+.seed-card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(46,43,38,.1)}
+.seed-cover{width:100%;display:block;height:auto}
+.seed-cover-ph{display:flex;align-items:center;justify-content:center;aspect-ratio:3/4;background:linear-gradient(135deg,var(--card),var(--card-2));color:var(--muted);font-size:13px;letter-spacing:.05em}
+.seed-body{padding:14px 16px}
+.seed-platform{display:block;font-size:11px;letter-spacing:.12em;color:var(--pink);text-transform:uppercase}
+.seed-body h4{font-size:15px;line-height:1.5;margin-top:6px;font-family:var(--serif)}
+/* ---------- 图片占位块 ---------- */
+.ph{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,var(--card) 0%,var(--card-2) 100%);border:1px dashed rgba(46,43,38,.22);border-radius:6px;color:var(--muted);width:100%}
+.ph.round{border-radius:50%;aspect-ratio:1/1}
+.ph-label{font-size:13px;letter-spacing:.06em}
+.ph-play{width:34px;height:34px;color:var(--sage)}
+
+/* ---------- 联系 ---------- */
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;grid-auto-rows:1fr;align-items:stretch}
+.contact-card{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:32px 20px;gap:6px;min-height:260px;height:100%;box-sizing:border-box}
+.contact-ic{width:30px;height:30px;color:var(--sage);display:flex;align-items:center;justify-content:center;margin-bottom:6px}
+.contact-ic svg{width:100%;height:100%}
+.contact-label{font-size:12px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;margin-top:6px}
+.contact-value{font-size:16px;font-family:var(--serif);color:var(--ink)}
+.contact-qr .ph{margin-bottom:8px}
+.contact-qr-img{width:140px;height:140px;object-fit:contain;display:block;margin-bottom:10px;background:var(--surface)}
+
+/* ---------- 页脚 ---------- */
+.footer{border-top:1px solid var(--line);padding:52px 0;text-align:center}
+.footer-thanks{font-family:var(--serif);font-size:24px}
+.footer-copy{margin-top:12px;font-size:13px;color:var(--muted);letter-spacing:.06em}
+
+/* ---------- 渐显（轻量，非复杂动效） ---------- */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease-out,transform .6s ease-out}
+.reveal.on{opacity:1;transform:none}
+
+/* ---------- 响应式 ---------- */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{transition:none;opacity:1;transform:none}
+  .card{transition:none}
+}
+@media (max-width:768px){
+  .nav-toggle{display:flex}
+  .nav-links{position:absolute;top:64px;left:0;right:0;background:var(--bg);flex-direction:column;gap:0;padding:6px 24px 18px;border-bottom:1px solid var(--line);display:none}
+  .nav-links.open{display:flex}
+  .nav-links a{padding:13px 0;font-size:16px;border-bottom:1px solid var(--line)}
+  .hero{padding:120px 0 48px}
+  .hero-grid{grid-template-columns:1fr;gap:36px}
+  .hero-image{width:min(260px,80%);margin:0 auto}
+  .timeline::before{left:24px;transform:none}
+  .tl-item{grid-template-columns:1fr;column-gap:0;padding-left:64px;padding-bottom:40px;position:relative;align-items:stretch}
+  .tl-side.left,.tl-side.right{grid-column:1;justify-self:stretch;max-width:100%}
+  .tl-side.left{order:1}
+  .tl-side.right{order:2}
+  .tl-marker{position:absolute;left:0;top:6px;flex-direction:column;align-items:flex-start;padding:0;width:56px}
+  .tl-marker .tl-stage{font-size:13px;text-align:left;white-space:normal;line-height:1.4}
+  .tl-marker .tl-period{font-size:11px;margin-top:2px;margin-left:24px;white-space:normal;text-align:left;color:var(--muted)}
+  .tl-marker .tl-dot{position:absolute;left:17px;top:0;margin-top:0;width:14px;height:14px}
+  .board-desc{white-space:normal}
+  .section{padding:64px 0}
+  .gallery{padding:20px 48px 46px}
+  .gallery-arrow.prev{left:6px}
+  .gallery-arrow.next{right:6px}
+  .lightbox-arrow.prev{left:10px}
+  .lightbox-arrow.next{right:10px}
+  .lightbox-close{top:12px;right:14px}
+  .seed-masonry{columns:2}
+  .video-grid{grid-template-columns:1fr}
+  .sec-head{flex-direction:column;gap:8px;margin-bottom:40px}
+}
+@media (max-width:480px){
+  .seed-masonry{columns:1}
+  .gallery{padding:16px 40px 40px}
+  .gallery-item{width:80vw}
+  .hero-title{font-size:34px;white-space:normal;line-height:1.15}
+}
+
+/* ---------- 动效统一（P1） ---------- */
+:root{--ease-out:cubic-bezier(.22,1,.36,1)}
+
+/* 统一 hover 浮起：translateY(-4px) + scale(1.005) + 阴影升级 */
+.card,.adv-card,.seed-card,.contact-card{
+  transition:transform .32s var(--ease-out),box-shadow .32s var(--ease-out),border-color .25s var(--ease-out);
+  will-change:transform
+}
+.card:hover,.adv-card:hover,.seed-card:hover,.contact-card:hover{
+  transform:translateY(-4px) scale(1.005);
+  box-shadow:0 14px 34px rgba(46,43,38,.1)
+}
+.contact-card:hover{border-color:var(--sage)}
+
+/* 视频封面：图片 hover 缩放 + 播放按钮放大 */
+.video-cover img{transition:transform .4s var(--ease-out),filter .3s var(--ease-out)}
+.video-card:hover .video-cover img{transform:scale(1.03);filter:brightness(1.05)}
+.video-play{transition:transform .25s var(--ease-out),background .25s var(--ease-out)}
+.video-card:hover .video-play{transform:translate(-50%,-50%) scale(1.12);background:rgba(46,43,38,.7)}
+
+/* tag hover */
+.tag{transition:transform .25s var(--ease-out),border-color .25s var(--ease-out),color .25s var(--ease-out)}
+.tag:hover{transform:translateY(-1px);border-color:var(--sage);color:var(--olive)}
+
+/* carousel 非 active 卡片 hover（暗示可点） */
+.gallery-item:hover:not(.is-active){opacity:.9}
+
+/* 按压反馈 */
+.btn-primary,.btn-ghost{transition:transform .16s var(--ease-out),background .25s var(--ease-out),color .25s var(--ease-out),border-color .25s var(--ease-out),box-shadow .25s var(--ease-out)}
+.btn-primary:active{transform:scale(.96);box-shadow:inset 0 2px 6px rgba(0,0,0,.18)}
+.btn-ghost:active{transform:scale(.96);box-shadow:inset 0 2px 6px rgba(46,43,38,.08)}
+.btn-ghost:hover{background:rgba(46,43,38,.05);color:var(--ink)}
+.gallery-arrow:active{transform:scale(.92)}
+.lightbox-close:active,.lightbox-arrow:active{transform:scale(.92)}
+.lightbox-arrow:active{transform:translateY(-50%) scale(.92)}
+.article-card:active,.video-card:active,.seed-card:active{transform:translateY(-2px) scale(.985)}
+
+/* tl-side 方向化 reveal */
+.tl-side.left .reveal{transform:translateX(-30px)}
+.tl-side.right .reveal{transform:translateX(30px)}
+
+/* tl-dot 进入视口 pulse 一次 */
+@keyframes tlDotPulse{0%{transform:scale(1)}40%{transform:scale(1.4)}100%{transform:scale(1)}}
+.reveal.on .tl-dot{animation:tlDotPulse .5s var(--ease-out) 1}
+
+/* 灯箱入场：图片从 scale 0.85 + translateY 20px 渐入 */
+@keyframes lbZoom{from{transform:scale(.85) translateY(20px);opacity:0}to{transform:scale(1) translateY(0);opacity:1}}
+.lightbox-img{animation:lbZoom .3s var(--ease-out)}
+
+/* 滚动进度线（Nav 顶部 2px） */
+.scroll-progress{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--sage),var(--olive));z-index:999;width:0;pointer-events:none}
+
+/* 移动端禁用 hover 卡死状态 */
+@media (hover:none){
+  .card:hover,.adv-card:hover,.seed-card:hover,.contact-card:hover,.tag:hover,.video-card:hover .video-cover img,.video-card:hover .video-play,.gallery-item:hover:not(.is-active){transform:none;box-shadow:inherit;opacity:inherit;filter:inherit;border-color:inherit;color:inherit}
+}
+
+/* ---------- 首屏入场动画（加载即播，错峰登场） ---------- */
+@keyframes enterUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes enterDown{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes enterPhoto{from{opacity:0;transform:scale(.88) translateY(16px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.enter{animation:enterUp .6s var(--ease-out) backwards}
+.enter-photo{animation:enterPhoto .8s var(--ease-out) backwards}
+.nav{animation:enterDown .55s var(--ease-out) backwards}
+
+/* reduced-motion 下动效全降级 */
+@media (prefers-reduced-motion:reduce){
+  .enter,.enter-photo,.nav{animation:none}
+  .card,.adv-card,.seed-card,.contact-card,.btn-primary,.btn-ghost,.video-cover img,.tag,.gallery-arrow,.lightbox-close,.lightbox-arrow,.article-card,.video-card,.tl-img img,.video-play,.reveal.on .tl-dot{transition:none;animation:none}
+}
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<!-- 本地引用，离线双击即开，不依赖外部 CDN -->
+<script src="libs/react.min.js"></script>
+<script src="libs/react-dom.min.js"></script>
+<script src="libs/babel.min.js"></script>
+
+<script type="text/babel" data-presets="react">
+const { useState, useEffect, useRef } = React;
+
+/* ============================================================
+ * 数据层 —— 想加内容只改这里
+ * ------------------------------------------------------------
+ * · PROFILE    个人信息
+ * · STATS      首屏数据战绩
+ * · EXPERIENCE 个人经历（校园/实习/工作）
+ * · WORKS      作品（三大板块：creation / campaign / seeding）
+ * · CONTACT    联系方式
+ * ========================================================== */
+
+const PROFILE = {
+  name: "许怡馨",
+  siteTitle: "你好，我是许怡馨",
+  eyebrow: "Hello, I'm Xu Yixin",
+  tagline: "品牌传播 · 内容营销 · 达人种草",
+  photo: "images/photo.jpg", // 个人生活照（后续可换）
+};
+
+const STATS = [
+  { num: "2",    unit: "w+",  label: "宣传矩阵月均曝光" },
+  { num: "100",  unit: "w+",  label: "线下活动传播声量" },
+  { num: "1.8",  unit: "亿",  label: "全年达人种草总曝光" },
+  { num: "No.1", unit: "",    label: "行业 SOV 排名" },
+];
+
+const ADVANTAGES = [
+  {
+    tone: "pink", icon: "broadcast",
+    title: "品牌传播及社媒推广", titleEn: "Brand & Social Media",
+    points: [
+      "良好的品牌传播思维，具备活动传播经验",
+      "熟悉主流社媒平台用户画像及玩法",
+      "能独立进行账号规划与运营",
+    ],
+    pill: "从曝光到转化",
+  },
+  {
+    tone: "green", icon: "create",
+    title: "内容创作能力", titleEn: "Content Creation",
+    points: [
+      "扎实的文字功底，可独立产出公众号推文、新闻稿",
+      "短视频脚本及视频、平面物料等多形态内容",
+      "覆盖图文/视频/海报全内容形态",
+    ],
+    pill: "多形态内容产出",
+  },
+  {
+    tone: "purple", icon: "research",
+    title: "用户调研及数据分析", titleEn: "Research & Analytics",
+    points: [
+      "掌握问卷调研 / 深度访谈等定性与定量研究方法",
+      "可熟练应用 SPSS / Excel 等数据分析工具",
+      "用数据驱动策略优化",
+    ],
+    pill: "数据驱动决策",
+  },
+  {
+    tone: "cyan", icon: "ai",
+    title: "AIGC 工具应用", titleEn: "AI Tooling",
+    points: [
+      "熟练使用即梦 / Coze / Codex 等多品类 AI 工具",
+      "覆盖文本 / 图片 / 视频 / 网页全内容形态",
+      "赋能工作提效与创新表达",
+    ],
+    pill: "AI 提效新范式",
+  },
+];
+
+const EXPERIENCE = [
+  {
+    stage: "校园经历", period: "2021.09 — 2025.06",
+    org: "福州大学（211）", role: "社会学 · 本科",
+    image: "images/exp/campus.jpg", caption: "福州大学 · 校门",
+    points: [
+      "学分成绩 3.4/4，专业排名 11/36，通过大学英语六级",
+      "获校级三好学生、三等奖学金、省级「互联网+」大学生创新创业大赛银奖",
+      "全国大学生数学建模竞赛省级二等奖、美国大学生数学建模竞赛 H 奖、统计建模大赛一等奖",
+    ],
+    tags: ["社会统计", "调研方法", "数据挖掘", "网页分析"],
+  },
+  {
+    stage: "实习经历", period: "2024.01 — 2024.03",
+    org: "网易", role: "内容运营实习生 · 新闻社区",
+    image: "images/exp/netease.jpg", caption: "网易大厦 · 北京",
+    points: [
+      "负责网易新闻「附近」频道内容运营，调研 6+ 竞品并输出 3000+ 字报告",
+      "策划 50+ 热点话题并多渠道推广，话题 CTR 提升 5%，单周发帖 2k+",
+      "运营 4 个头部用户社群（1200+ 用户），用 Excel / SPSS 完成 10+ 份数据周报",
+    ],
+    tags: ["内容运营", "热点策划", "数据分析", "社群运营"],
+  },
+  {
+    stage: "工作经历", period: "2025.07 — 至今",
+    org: "三棵树涂料股份有限公司", role: "品牌市场部 · 马上住业务线",
+    image: "images/exp/sankeshu.jpg", caption: "三棵树 · 总部园区",
+    points: [
+      "统筹公众号 / 视频号 / 小红书等社媒矩阵运营，制定宣传策略，矩阵月度曝光 2w+",
+      "主导内容输出，独立完成拍摄 / 剪辑 / 文案，并结合 AIGC 工具提效",
+      "推进品牌传播与达人种草，25 年总曝光 1.8 亿、互动 192 万，行业 SOV 第一",
+    ],
+    tags: ["社媒运营", "品牌传播", "达人种草", "AIGC"],
+  },
+];
+
+const WORKS = {
+  creation: {
+    no: "01", name: "内容创作", en: "Content Creation",
+    desc: "统筹马上住官方社媒矩阵，独立产出文字、平面、视频等多形态内容，并结合 AIGC 工具提升产出效率。",
+    articles: [
+      { title: "市场动销类推文", desc: "围绕市场动销与业绩节点，输出高传播度的营销内容。", link: "https://mp.weixin.qq.com/s/w2mn555CxoLy8DNBj67Bog", cover: "images/articles/a1.jpg" },
+      { title: "活动报道类推文", desc: "对线下活动进行全程报道，传递品牌声量与现场热度。", link: "https://mp.weixin.qq.com/s/GUEFLdQV0GkRQLe2mz6Wlg", cover: "images/articles/a2.jpg" },
+      { title: "品牌传播类推文", desc: "围绕品牌传播主题输出深度内容，巩固市场领先认知。", link: "https://mp.weixin.qq.com/s/RDFG7S7ALi61Q9SnMkmmTA", cover: "images/articles/a3.jpg" },
+      { title: "用户案例类推文", desc: "以真实用户案例讲述品牌故事，建立情感联结。", link: "https://mp.weixin.qq.com/s/-0aQGMmAIAvoRLIXDOeDbg", cover: "images/articles/a4.jpg" },
+    ],
+    graphics: [
+      { title: "产品 · 马上住砖改漆", src: "images/graphics/g3.jpg" },
+      { title: "节日 · 中秋", src: "images/graphics/g4.jpg" },
+      { title: "节日 · 清明", src: "images/graphics/g5.jpg" },
+      { title: "产品 · 鲜呼吸焕新居", src: "images/graphics/g6.jpg" },
+      { title: "活动 · 焕新生态倒计时", src: "images/graphics/g7.jpg" },
+      { title: "活动 · 焕新生态直播", src: "images/graphics/g8.jpg" },
+      { title: "活动 · 百团巡礼节", src: "images/graphics/g9.jpg" },
+      { title: "活动 · 社团部招新", src: "images/graphics/g10.jpg" },
+      { title: "节日 · 中秋", src: "images/graphics/g11.jpg" },
+      { title: "节日 · 清明", src: "images/graphics/g12.jpg" },
+      { title: "手册 · 时光胶囊", src: "images/graphics/g13.jpg" },
+      { title: "手册 · 2023 心理手册", src: "images/graphics/g14.jpg" },
+      { title: "战报 · 50+ 家新开", src: "images/graphics/g15.jpg" },
+      { title: "战报 · 突破 30000 家", src: "images/graphics/g16.jpg" },
+    ],
+    videos: [
+      { title: "业主宣传片", desc: "业主真实案例宣传片，展示焕新成果。", link: "https://weixin.qq.com/sph/AZKoXW3ZSz", cover: "images/videos/v2.jpg" },
+      { title: "招商宣传片", desc: "面向经销商招商宣传，强化品牌声量。", link: "https://weixin.qq.com/sph/AnCjlpgnfx", cover: "images/videos/v1.jpg" },
+      { title: "产品视频", desc: "产品亮点展示，讲清核心卖点。", link: "https://weixin.qq.com/sph/ApR2LarOOh", cover: "images/videos/v3.jpg" },
+      { title: "客户案例", desc: "真实客户案例记录，呈现服务全流程。", link: "https://weixin.qq.com/sph/AVXYhWZsFf", cover: "images/videos/v4.jpg" },
+      { title: "热点二创", desc: "结合热点二次创作，提升传播热度。", link: "https://weixin.qq.com/sph/AURKRheDBL", cover: "images/videos/v5.jpg" },
+      { title: "AI 创新", desc: "结合 AIGC 工具创新表达，提效产出。", link: "https://weixin.qq.com/sph/ASwwN3CmCl", cover: "images/videos/v6.jpg" },
+    ],
+  },
+  campaign: {
+    no: "02", name: "品牌活动策划", en: "Brand Campaign",
+    desc: "从发布会到行业展会，统筹全周期传播节奏，强化品牌在渠道端的声量与形象。",
+    items: [
+      {
+        title: "马上住战略发布会", cover: "images/campaign/c1.jpg", role: "深度参与策划与执行",
+        desc: "确定主题、场地与现场设计，制定「线下发布 + 线上直播 + 社媒矩阵 + 媒体稿件」整合传播方案。",
+        metrics: ["线下参会 1000+", "直播观看 5w+"],
+        tags: ["发布会", "整合传播", "直播"],
+      },
+      {
+        title: "涂博会 · 行业展会", cover: "images/campaign/c2.jpg", role: "承接品牌展区落地",
+        desc: "输出展区设计、视觉包装与物料陈列，制定传播规划并把控现场呈现效果。",
+        metrics: ["意向留资 200+", "品牌曝光提升"],
+        tags: ["展会", "展区设计", "获客"],
+      },
+      {
+        title: "市场规模第一 · 品牌项目", cover: "images/campaign/c3.jpg", role: "推进品牌传播",
+        desc: "联动线上线下渠道，推进「马上住中国涂料焕新品牌市场规模第一」传播，巩固品牌市场领先认知。",
+        metrics: ["市场领先认知", "增强品牌信任"],
+        tags: ["品牌传播", "渠道联动"],
+      },
+    ],
+  },
+  seeding: {
+    no: "03", name: "达人种草", en: "KOL Seeding",
+    desc: "对齐核心卖点，搭建头部-腰部-尾部-KOC 四级达人矩阵，覆盖多平台多圈层，打造多篇爆款内容。",
+    items: [
+      { platform: "知乎 · 知识", title: "三周研究环保乳胶漆，2天搞定全家门廊", link: "https://zhuanlan.zhihu.com/p/2037191264127410990", cover: "images/seeding/s1.jpg" },
+      { platform: "B站 · 生活", title: "花550万抄底买老破小，爆改之后我赚了吗", link: "https://b23.tv/zy1VPJy", cover: "images/seeding/s2.jpg" },
+      { platform: "抖音 · 剧情", title: "谁家摊上这儿子不上火啊！", link: "https://v.douyin.com/L20N7PCSizE/", cover: "images/seeding/s3.jpg" },
+      { platform: "抖音 · 生活", title: "人会在爱里圆满", link: "https://v.douyin.com/dIu4sPWRzP4/", cover: "images/seeding/s10.jpg" },
+      { platform: "小红书 · 家居", title: "靠一座树景房，我起号成功了！", link: "https://xhslink.cn/o/7rPdviRxfWs", cover: "images/seeding/s4.jpg" },
+      { platform: "小红书 · 宠物", title: "做我的小猫，我一定会给它最好的", link: "https://xhslink.cn/o/7HWw6Fop15v", cover: "images/seeding/s5.jpg" },
+      { platform: "小红书 · 职场", title: "ENTJ事业女的空间管理术：出差＝焕新", link: "https://xhslink.cn/o/9QpRX9QkyuU", cover: "images/seeding/s6.jpg" },
+      { platform: "小红书 · 公益", title: "愿他们走出群山，看见山外的世界", link: "https://xhslink.cn/o/3LaQNEH40eB", cover: "images/seeding/s7.jpg" },
+      { platform: "小红书 · 文化", title: "看懂了马上，就看懂了中国人的生活哲学", link: "https://xhslink.cn/o/70SgucyKmuU", cover: "images/seeding/s9.jpg" },
+    ],
+  },
+};
+
+const CONTACT = {
+  phone: "13599555309",
+  email: "xuyx1104@163.com",
+  wechat: "star031104",
+};
+
+/* ============================================================
+ * 通用小组件
+ * ========================================================== */
+
+// 滚动渐显容器（轻量，可用 prefers-reduced-motion 关闭；delay 用于 stagger）
+function Reveal({ children, className = "", delay = 0 }) {
+  const ref = useRef(null);
+  const [vis, setVis] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { setVis(true); io.disconnect(); }
+    }, { threshold: 0.12 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+  return <div ref={ref} className={"reveal" + (vis ? " on" : "") + (className ? " " + className : "")} style={delay ? { transitionDelay: `${delay}ms` } : undefined}>{children}</div>;
+}
+
+function Tag({ children }) { return <span className="tag">{children}</span>; }
+
+// 图片占位块（后续替换为真实图片）
+function ImgPlaceholder({ label, ratio = "4/3", round = false, play = false }) {
+  return (
+    <div className={"ph" + (round ? " round" : "")} style={{ aspectRatio: ratio }}>
+      {play && (
+        <svg className="ph-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      )}
+      <span className="ph-label">{label}</span>
+    </div>
+  );
+}
+
+function SectionTitle({ no, zh, en, desc }) {
+  return (
+    <Reveal>
+      <div className="sec-head">
+        <span className="sec-no">{no}</span>
+        <div>
+          <h2 className="sec-zh">{zh}</h2>
+          <p className="sec-en">{en}</p>
+          {desc && <p className="sec-desc">{desc}</p>}
+        </div>
+      </div>
+    </Reveal>
+  );
+}
+
+function BoardHead({ no, name, en, desc }) {
+  return (
+    <div className="board-head">
+      <span className="board-no">{no}</span>
+      <div>
+        <h3 className="board-name">{name}</h3>
+        <p className="board-en">{en}</p>
+        {desc && <p className="board-desc">{desc}</p>}
+      </div>
+    </div>
+  );
+}
+
+function SubHead({ title, note }) {
+  return (
+    <div className="sub-head">
+      <h3 className="sub-title">{title}</h3>
+      {note && <span className="sub-note">{note}</span>}
+    </div>
+  );
+}
+
+/* ---------- 细线图标 ---------- */
+function IconPhone() {
+  return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.4 2.1L8 9.7a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg>);
+}
+function IconMail() {
+  return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>);
+}
+function IconWechat() {
+  return (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.4c-1.5 0-2.9-.4-4.1-1L3 20l1.2-3.6A8.4 8.4 0 1 1 21 11.5Z"/><circle cx="9" cy="11.5" r=".8" fill="currentColor" stroke="none"/><circle cx="15" cy="11.5" r=".8" fill="currentColor" stroke="none"/></svg>);
+}
+
+/* ============================================================
+ * 页面组件
+ * ========================================================== */
+
+function Nav() {
+  const [open, setOpen] = useState(false);
+  const links = [["首页", "#home"], ["经历", "#experience"], ["作品", "#works"], ["联系", "#contact"]];
+  return (
+    <header className="nav">
+      <div className="container nav-inner">
+        <a className="brand" href="#home">{PROFILE.name}<span className="brand-dot">.</span></a>
+        <nav className={"nav-links" + (open ? " open" : "")}>
+          {links.map(([t, h]) => <a key={h} href={h} onClick={() => setOpen(false)}>{t}</a>)}
+        </nav>
+        <button className="nav-toggle" onClick={() => setOpen(!open)} aria-label="菜单">
+          <span /><span /><span />
+        </button>
+      </div>
+    </header>
+  );
+}
+
+function Hero() {
+  return (
+    <section id="home" className="hero">
+      <div className="container">
+        <div className="hero-grid">
+          <div className="hero-text">
+            <p className="hero-eyebrow enter" style={{ animationDelay: "150ms" }}>{PROFILE.eyebrow}</p>
+            <h1 className="hero-title enter" style={{ animationDelay: "250ms", animationDuration: "0.7s" }}>{PROFILE.siteTitle}</h1>
+            <p className="hero-tagline enter" style={{ animationDelay: "400ms" }}>{PROFILE.tagline}</p>
+            <div className="hero-cta">
+              <a className="btn btn-primary enter" style={{ animationDelay: "520ms" }} href="#works">查看作品</a>
+              <a className="btn btn-ghost enter" style={{ animationDelay: "600ms" }} href="#contact">联系我</a>
+            </div>
+          </div>
+          <div className="hero-image enter-photo" style={{ animationDelay: "620ms" }}>
+            <img src={PROFILE.photo} alt={PROFILE.name + " 个人生活照"} />
+            <span className="hero-image-cap" aria-hidden="true">Personal · 2026</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Stats() {
+  return (
+    <section className="stats">
+      <div className="container stats-grid">
+        {STATS.map((s, i) => (
+          <Reveal key={s.label} delay={i * 60}>
+            <div className="stat">
+              <div className="stat-num">{s.num}<span className="stat-unit">{s.unit}</span></div>
+              <div className="stat-label">{s.label}</div>
+            </div>
+          </Reveal>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function AdvIcon({ name }) {
+  const ICONS = {
+    broadcast: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="2.2" fill="currentColor"/><path d="M8.5 8.5a5 5 0 0 0 0 7"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M5.5 5.5a9 9 0 0 0 0 13"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>,
+    create:    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M14 3l7 7-9 9H5v-7z"/><path d="M13 5l6 6"/></svg>,
+    research:  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="7"/><line x1="20" y1="20" x2="16.5" y2="16.5"/><path d="M8 11h6"/></svg>,
+    ai:        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="6" width="16" height="12" rx="3"/><circle cx="9" cy="12" r="1.4" fill="currentColor"/><circle cx="15" cy="12" r="1.4" fill="currentColor"/><path d="M12 3v3M8 18v3M16 18v3"/></svg>,
+    analysis:  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><line x1="4" y1="20" x2="20" y2="20"/><rect x="6" y="11" width="3" height="9"/><rect x="11" y="7" width="3" height="13"/><rect x="16" y="14" width="3" height="6"/></svg>,
+    channel:   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8 11l8-4M8 13l8 4"/></svg>,
+    content:   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="5" width="16" height="14" rx="2"/><line x1="8" y1="9" x2="16" y2="9"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="15" x2="13" y2="15"/></svg>,
+  };
+  return ICONS[name] || null;
+}
+
+function AdvCard({ a, delay = 0 }) {
+  return (
+    <Reveal delay={delay}>
+      <div className="adv-card">
+        <div className={`adv-icon tone-${a.tone}`}><AdvIcon name={a.icon} /></div>
+        <h3 className="adv-title">{a.title}</h3>
+        <p className="adv-title-en">{a.titleEn}</p>
+        <ul className="adv-points">{a.points.map((p) => <li key={p}>{p}</li>)}</ul>
+        <span className={`adv-pill tone-${a.tone}`}>{a.pill}</span>
+      </div>
+    </Reveal>
+  );
+}
+
+function Advantages() {
+  const particlesRef = useRef(null);
+  // P3：Three.js 粒子环（懒加载 + 可见时才渲染；reduced-motion 直接禁用；移动端粒子减半）
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion:reduce)").matches) return;
+    const canvas = particlesRef.current;
+    if (!canvas) return;
+    let started = false;
+    let cleanup = null;
+    const start = async () => {
+      if (started) return;
+      started = true;
+      try {
+        // UMD 动态加载（兼容 file:// 直开与不规范 MIME 的静态服务；three r147 为最后 UMD 版本）
+        const THREE = await new Promise((resolve, reject) => {
+          if (window.THREE) return resolve(window.THREE);
+          const s = document.createElement("script");
+          s.src = "libs/three.min.js";
+          s.onload = () => resolve(window.THREE);
+          s.onerror = reject;
+          document.head.appendChild(s);
+        });
+        const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+        renderer.setClearColor(0x000000, 0);
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(45, 1, 1, 2000);
+        camera.position.set(0, 110, 330);
+        camera.lookAt(0, 10, 0);
+        const isMobile = window.matchMedia("(hover:none)").matches || window.innerWidth < 768;
+        const COUNT = isMobile ? 30 : 60;
+        const pos = new Float32Array(COUNT * 3);
+        for (let i = 0; i < COUNT; i++) {
+          const a = (i / COUNT) * Math.PI * 2;
+          const r = 165 + (Math.random() - 0.5) * 16;
+          pos[i * 3] = Math.cos(a) * r;
+          pos[i * 3 + 1] = (Math.random() - 0.5) * 12;
+          pos[i * 3 + 2] = Math.sin(a) * r;
+        }
+        const geo = new THREE.BufferGeometry();
+        geo.setAttribute("position", new THREE.BufferAttribute(pos, 3));
+        const mat = new THREE.PointsMaterial({ color: 0x7fb8bd, size: 6, sizeAttenuation: true, transparent: true, opacity: 0.9, depthWrite: false });
+        const ring = new THREE.Points(geo, mat);
+        const group = new THREE.Group();
+        group.add(ring);
+        group.position.y = -30; // 环心下移，贴合底座（人物脚下）
+        scene.add(group);
+        const resize = () => {
+          const w = canvas.clientWidth || 1;
+          const h = canvas.clientHeight || 1;
+          renderer.setSize(w, h, false);
+          camera.aspect = w / h;
+          camera.updateProjectionMatrix();
+        };
+        resize();
+        window.addEventListener("resize", resize);
+        // 仅当画布在视口内时才渲染（省电省性能）
+        let visible = true;
+        const vio = new IntersectionObserver((es) => es.forEach((e) => { visible = e.isIntersecting; }));
+        vio.observe(canvas);
+        let raf = 0;
+        const loop = (t) => {
+          raf = requestAnimationFrame(loop);
+          if (!visible) return;
+          const s = t / 1000;
+          group.rotation.y = s * (Math.PI * 2 / 30);       // 30s/圈
+          const b = 1 + 0.04 * Math.sin(s * Math.PI * 2 / 3); // 3s 呼吸 ±4%
+          group.scale.set(b, 1, b);
+          renderer.render(scene, camera);
+        };
+        raf = requestAnimationFrame(loop);
+        cleanup = () => {
+          cancelAnimationFrame(raf);
+          vio.disconnect();
+          window.removeEventListener("resize", resize);
+          geo.dispose();
+          mat.dispose();
+          renderer.dispose();
+        };
+      } catch (err) {
+        canvas.remove(); // WebGL 不可用时静默降级
+      }
+    };
+    // 懒加载：进入视口前 300px 才开始加载 three.module.js
+    const io = new IntersectionObserver((es) => {
+      es.forEach((e) => { if (e.isIntersecting) { start(); io.disconnect(); } });
+    }, { rootMargin: "300px" });
+    io.observe(canvas);
+    return () => { io.disconnect(); if (cleanup) cleanup(); };
+  }, []);
+  return (
+    <section className="advantage" id="advantage">
+      <div className="container">
+        <div className="advantage-head">
+          <Reveal><h2 className="sec-zh">个人优势</h2></Reveal>
+          <Reveal><p className="sec-en">Personal Advantages</p></Reveal>
+          <Reveal><p className="adv-tagline">用品牌视角做内容｜用数据方法驱动增长</p></Reveal>
+        </div>
+        <div className="advantage-grid">
+          <div className="adv-col left">
+            <AdvCard a={ADVANTAGES[0]} delay={0} />
+            <AdvCard a={ADVANTAGES[1]} delay={60} />
+          </div>
+          <div className="adv-center">
+            <span className="adv-base" />
+            <canvas ref={particlesRef} className="adv-particles" aria-hidden="true" />
+            <img className="adv-avatar" src="images/avatar-advantage.png" alt="个人形象" />
+            <div className="adv-floats">
+              <span className="adv-float-icon adv-float lt"><AdvIcon name="analysis" /></span>
+              <span className="adv-float-icon adv-float rt"><AdvIcon name="channel" /></span>
+              <span className="adv-float-icon adv-float lb"><AdvIcon name="content" /></span>
+              <span className="adv-float-icon adv-float rb"><AdvIcon name="ai" /></span>
+            </div>
+          </div>
+          <div className="adv-col right">
+            <AdvCard a={ADVANTAGES[2]} delay={0} />
+            <AdvCard a={ADVANTAGES[3]} delay={60} />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Experience() {
+  return (
+    <section id="experience" className="section">
+      <div className="container">
+        <SectionTitle no="Ⅰ" zh="个人经历" en="Experience" />
+        <div className="timeline">
+          {EXPERIENCE.map((e, i) => {
+            const isEven = i % 2 === 1; // 偶数索引=图左文右(0,2...)，奇数=文左图右(1,3...)
+            const leftBlock = isEven ? (
+              <div className="tl-card card">
+                <h3 className="tl-org">{e.org}</h3>
+                <p className="tl-role">{e.role}</p>
+                <ul className="tl-points">{e.points.map((p) => <li key={p}>{p}</li>)}</ul>
+                <div className="tag-row">{e.tags.map((t) => <Tag key={t}>{t}</Tag>)}</div>
+              </div>
+            ) : (
+              <React.Fragment>
+                <figure className="tl-img"><img src={e.image} alt={e.caption || e.org} loading="lazy" /></figure>
+                <span className="tl-caption">{e.caption}</span>
+              </React.Fragment>
+            );
+            const rightBlock = isEven ? (
+              <React.Fragment>
+                <figure className="tl-img"><img src={e.image} alt={e.caption || e.org} loading="lazy" /></figure>
+                <span className="tl-caption">{e.caption}</span>
+              </React.Fragment>
+            ) : (
+              <div className="tl-card card">
+                <h3 className="tl-org">{e.org}</h3>
+                <p className="tl-role">{e.role}</p>
+                <ul className="tl-points">{e.points.map((p) => <li key={p}>{p}</li>)}</ul>
+                <div className="tag-row">{e.tags.map((t) => <Tag key={t}>{t}</Tag>)}</div>
+              </div>
+            );
+            return (
+              <Reveal key={e.org}>
+                <div className="tl-item">
+                  <div className="tl-side left">{leftBlock}</div>
+                  <div className="tl-marker">
+                    <span className="tl-stage">{e.stage}</span>
+                    <span className="tl-period">{e.period}</span>
+                    <span className="tl-dot" />
+                  </div>
+                  <div className="tl-side right">{rightBlock}</div>
+                </div>
+              </Reveal>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- 平面设计 · 左右滑动 carousel ---------- */
+function GalleryGrid({ images }) {
+  const [lb, setLb] = useState(null);
+  const [cur, setCur] = useState(0);
+  const trackRef = useRef(null);
+  const galleryRef = useRef(null);
+  const didMount = useRef(false);
+
+  useEffect(() => {
+    // 跳过首次挂载，避免打开页面时 scrollIntoView 把 gallery 滚进视口（页面自动跳转到中间）
+    if (!didMount.current) { didMount.current = true; return; }
+    if (!trackRef.current) return;
+    const el = trackRef.current.children[cur];
+    if (el) el.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+  }, [cur]);
+
+  useEffect(() => {
+    if (lb === null) return;
+    const onKey = (e) => {
+      if (e.key === "Escape") setLb(null);
+      else if (e.key === "ArrowRight") setLb(i => { const n = (i + 1) % images.length; setCur(n); return n; });
+      else if (e.key === "ArrowLeft") setLb(i => { const n = (i - 1 + images.length) % images.length; setCur(n); return n; });
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [lb, images.length]);
+
+  // 灯箱打开时锁定背景滚动，关闭时恢复（防止遮罩下页面滚动/跳动）
+  useEffect(() => {
+    if (lb === null) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = prev; };
+  }, [lb]);
+
+  const slide = (delta) => {
+    setCur(i => (i + delta + images.length) % images.length);
+  };
+
+  return (
+    <React.Fragment>
+      <div className="gallery" ref={galleryRef}>
+        <button className="gallery-arrow prev" onClick={() => slide(-1)} aria-label="上一张">‹</button>
+        <div className="gallery-track" ref={trackRef}>
+          {images.map((img, i) => (
+            <button
+              key={i}
+              className={`gallery-item ${i === cur ? "is-active" : ""}`}
+              onClick={() => { setCur(i); setLb(i); }}
+              aria-label={img.title}
+            >
+              <img src={img.src} alt={img.title} loading="lazy" />
+            </button>
+          ))}
+        </div>
+        <button className="gallery-arrow next" onClick={() => slide(1)} aria-label="下一张">›</button>
+        <span className="gallery-count">{cur + 1} / {images.length}</span>
+      </div>
+      {lb !== null && (
+        <div className="lightbox" onClick={() => setLb(null)}>
+          <button className="lightbox-close" onClick={() => setLb(null)} aria-label="关闭">×</button>
+          <button className="lightbox-arrow prev" onClick={(e) => { e.stopPropagation(); setLb(i => { const n = (i - 1 + images.length) % images.length; setCur(n); return n; }); }} aria-label="上一张">‹</button>
+          <img key={images[lb].src} className="lightbox-img" src={images[lb].src} alt={images[lb].title} onClick={(e) => e.stopPropagation()} />
+          <button className="lightbox-arrow next" onClick={(e) => { e.stopPropagation(); setLb(i => { const n = (i + 1) % images.length; setCur(n); return n; }); }} aria-label="下一张">›</button>
+        </div>
+      )}
+    </React.Fragment>
+  );
+}
+
+/* ---------- 板块一：内容创作 ---------- */
+function CreationBoard() {
+  const c = WORKS.creation;
+  return (
+    <div className="board">
+      <BoardHead no={c.no} name={c.name} en={c.en} desc={c.desc} />
+
+      <SubHead title="公众号推文" note="点击卡片跳转公众号阅读原文" />
+      <div className="article-list">
+        {c.articles.map((a, i) => (
+          <Reveal key={a.title} delay={i * 60}>
+            <a className="article-card card" href={a.link} target="_blank" rel="noreferrer">
+              <div className="article-cover"><img src={a.cover} alt={a.title} loading="lazy" /></div>
+              <div className="article-body">
+                <h4>{a.title}</h4>
+                <p>{a.desc}</p>
+                <span className="link-more">阅读全文 →</span>
+              </div>
+            </a>
+          </Reveal>
+        ))}
+      </div>
+
+      <SubHead title="平面设计" note="左右滑动浏览 · 点击查看大图" />
+      <GalleryGrid images={c.graphics} />
+
+      <SubHead title="视频输出" note="点击跳转视频号观看" />
+      <div className="video-grid">
+        {c.videos.map((v, i) => (
+          <Reveal key={v.title} delay={i * 60}>
+            <a className="video-card card" href={v.link} target="_blank" rel="noreferrer">
+              <div className="video-cover">
+                {v.cover ? (
+                  <img src={v.cover} alt={v.title} loading="lazy" />
+                ) : (
+                  <span className="video-cover-ph">视频封面</span>
+                )}
+                <span className="video-play">▶</span>
+              </div>
+              <div className="video-body">
+                <h4>{v.title}</h4>
+                <p>{v.desc}</p>
+              </div>
+            </a>
+          </Reveal>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* ---------- 板块二：品牌活动策划 ---------- */
+function CampaignBoard() {
+  const c = WORKS.campaign;
+  return (
+    <div className="board">
+      <BoardHead no={c.no} name={c.name} en={c.en} desc={c.desc} />
+      <div className="campaign-grid">
+        {c.items.map((it, i) => (
+          <Reveal key={it.title} delay={i * 60}>
+            <div className="campaign-card card">
+              <div className="campaign-cover"><img src={it.cover} alt={it.title} loading="lazy" /></div>
+              <div className="campaign-body">
+                <h4>{it.title}</h4>
+                <p className="campaign-role">{it.role}</p>
+                <p>{it.desc}</p>
+                <div className="metric-row">{it.metrics.map((m) => <span key={m} className="metric">{m}</span>)}</div>
+                <div className="tag-row">{it.tags.map((t) => <Tag key={t}>{t}</Tag>)}</div>
+              </div>
+            </div>
+          </Reveal>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* ---------- 板块三：达人种草 ---------- */
+function SeedingBoard() {
+  const c = WORKS.seeding;
+  return (
+    <div className="board">
+      <BoardHead no={c.no} name={c.name} en={c.en} desc={c.desc} />
+      <div className="seed-masonry">
+        {c.items.map((it, i) => (
+          <Reveal key={it.title} delay={i * 60}>
+            <a className="seed-card card" href={it.link} target="_blank" rel="noreferrer">
+              {it.cover ? (
+                <img className="seed-cover" src={it.cover} alt={it.title} loading="lazy" />
+              ) : (
+                <div className="seed-cover-ph"><span>{it.platform}</span></div>
+              )}
+              <div className="seed-body">
+                <span className="seed-platform">{it.platform}</span>
+                <h4>{it.title}</h4>
+              </div>
+            </a>
+          </Reveal>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function Works() {
+  return (
+    <section id="works" className="section section-alt">
+      <div className="container">
+        <SectionTitle no="Ⅱ" zh="作品展示" en="Selected Works" />
+        <CreationBoard />
+        <CampaignBoard />
+        <SeedingBoard />
+      </div>
+    </section>
+  );
+}
+
+function Contact() {
+  return (
+    <section id="contact" className="section">
+      <div className="container">
+        <SectionTitle no="Ⅲ" zh="欢迎联系" en="Get in Touch" desc="期待与你的进一步交流与合作。" />
+        <div className="contact-grid">
+          <Reveal delay={0}>
+            <a className="contact-card card" href={"tel:" + CONTACT.phone}>
+              <span className="contact-ic"><IconPhone /></span>
+              <span className="contact-label">电话</span>
+              <span className="contact-value">{CONTACT.phone}</span>
+            </a>
+          </Reveal>
+          <Reveal delay={60}>
+            <a className="contact-card card" href={"mailto:" + CONTACT.email}>
+              <span className="contact-ic"><IconMail /></span>
+              <span className="contact-label">邮箱</span>
+              <span className="contact-value">{CONTACT.email}</span>
+            </a>
+          </Reveal>
+          <Reveal delay={120}>
+            <div className="contact-card card">
+              <span className="contact-ic"><IconWechat /></span>
+              <span className="contact-label">微信</span>
+              <span className="contact-value">{CONTACT.wechat}</span>
+            </div>
+          </Reveal>
+          <Reveal delay={180}>
+            <div className="contact-card card contact-qr">
+              <img className="contact-qr-img" src="images/qrcode.png" alt="微信二维码" />
+              <span className="contact-label">扫码添加微信</span>
+            </div>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="footer">
+      <div className="container">
+        <p className="footer-thanks">谢谢观看 · 期待合作</p>
+        <p className="footer-copy">© 2026 {PROFILE.name} · Personal Portfolio</p>
+      </div>
+    </footer>
+  );
+}
+
+function App() {
+  const progressRef = useRef(null);
+  // P2：滚动进度线 + 视差漂浮（hero-image ×0.04 / adv-avatar ×0.03，rAF 节流，移动端与 reduced-motion 自动关闭）
+  useEffect(() => {
+    const reduced = window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+    const hoverNone = window.matchMedia("(hover:none)").matches;
+    const parallaxOn = !reduced && !hoverNone;
+    const heroImg = document.querySelector(".hero-image");
+    const advImg = document.querySelector(".adv-avatar");
+    const advSec = document.getElementById("advantage");
+    const advMid = advSec ? advSec.offsetTop + advSec.offsetHeight / 2 - window.innerHeight / 2 : 0;
+    let ticking = false;
+    const clamp = (v, m) => Math.max(-m, Math.min(m, v));
+    const update = () => {
+      ticking = false;
+      const y = window.scrollY;
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      if (progressRef.current) {
+        progressRef.current.style.width = (max > 0 ? Math.min(100, (y / max) * 100) : 0) + "%";
+      }
+      if (parallaxOn) {
+        if (heroImg) heroImg.style.transform = "translateY(" + clamp(y * 0.04, 40) + "px)";
+        if (advImg) advImg.style.transform = "translateY(" + clamp((y - advMid) * 0.03, 24) + "px)";
+      }
+    };
+    const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, []);
+  return (
+    <React.Fragment>
+      <div ref={progressRef} className="scroll-progress" aria-hidden="true" />
+      <Nav />
+      <main>
+        <Hero />
+        <Stats />
+        <Advantages />
+        <Experience />
+        <Works />
+        <Contact />
+      </main>
+      <Footer />
+    </React.Fragment>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<App />);
+</script>
+</body>
+</html>
