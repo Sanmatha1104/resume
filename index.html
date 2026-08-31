@@ -278,9 +278,9 @@ h1,h2,h3,h4,.serif{font-family:var(--serif);font-weight:500;letter-spacing:.01em
   .hero-image{width:min(260px,80%);margin:0 auto}
   .timeline::before{left:24px;transform:none}
   .tl-item{grid-template-columns:1fr;column-gap:0;padding-left:64px;padding-bottom:40px;position:relative;align-items:stretch}
-  .tl-side.left,.tl-side.right{grid-column:1;justify-self:stretch;max-width:100%}
-  .tl-side.left{order:1}
-  .tl-side.right{order:2}
+  .tl-side.left,.tl-side.right{grid-column:1;justify-self:stretch;max-width:100%;order:unset}
+  .tl-side:has(.tl-img){order:1}
+  .tl-side:has(.tl-card){order:2}
   .tl-marker{position:absolute;left:0;top:6px;flex-direction:column;align-items:flex-start;padding:0;width:56px}
   .tl-marker .tl-stage{font-size:13px;text-align:left;white-space:normal;line-height:1.4}
   .tl-marker .tl-period{font-size:11px;margin-top:2px;margin-left:24px;white-space:normal;text-align:left;color:var(--muted)}
